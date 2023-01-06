@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 *, * :before, * :after {
@@ -76,15 +77,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
+  color: #2e2d2d;
   margin: 0 auto;
   width: 100%;
-  overflow: hidden;
+  background-color: rgb(207, 205, 204);
 }
 
 h1, h2, h3 {
   font-family: "Playfair Display";
   font-style: italic;
-  font-size: 2.5em;
+  font-size: 3em;
+}
+
+p {
+  font-family: "Playfair Display";
+  font-size: 2.4em;
+}
+
+section, img {
+  max-width: 100%;
 }
 
 .wrapper-header {
@@ -95,13 +106,14 @@ h1, h2, h3 {
   position: sticky;
   width: 100%;
   height: 5em;
-  background: linear-gradient(90deg, #0e0e0e, rgba(112, 112, 105, 0.7960784314));
+  background: linear-gradient(90deg, #1d1d1d, rgba(100, 100, 100, 0.7960784314));
   padding-bottom: 1em;
 }
 .wrapper-header img {
   margin-top: 1.5em;
   height: 100%;
   width: 12em;
+  box-shadow: none;
 }
 .wrapper-header .burger-btn a {
   margin-top: 0em;
@@ -115,7 +127,6 @@ h1, h2, h3 {
 
 .wrapper-menu-burger {
   margin-top: 0;
-  background: linear-gradient(90deg, #0e0e0e, rgba(112, 112, 105, 0.7960784314));
   max-width: 100%;
   height: 7.5em;
   overflow: hidden;
@@ -138,9 +149,15 @@ h1, h2, h3 {
   text-shadow: 1px 1px 1px #0e0e0e;
   font-size: 1.2em;
   letter-spacing: 0.3em;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  transition-timing-function: ease;
 }
 .wrapper-menu-burger ul li a:hover {
+  display: inline-block;
   color: #eeebeb;
+  transform: translateY(-1px);
 }
 .wrapper-menu-burger ul li:hover {
   background: linear-gradient(90deg, rgba(39, 39, 38, 0.7960784314), #e2dfdd);
@@ -151,15 +168,22 @@ h1, h2, h3 {
 }
 
 @media (min-width: 1023px) {
+  .wrapper-header {
+    height: 7em;
+  }
   .wrapper-header img {
     margin-top: 1.5em;
     height: 100%;
     width: 15em;
   }
+  .burger-btn {
+    display: none !important;
+  }
   .wrapper-menu-burger {
-    display: none;
+    display: none !important;
   }
   .menu-desctop {
+    margin-right: 10em;
     display: block;
   }
   .menu-desctop ul {
@@ -179,8 +203,196 @@ h1, h2, h3 {
     text-shadow: 1px 1px 1px #0e0e0e;
     font-size: 1em;
     letter-spacing: 0.3em;
+    transition-property: transform;
+    transition-duration: 0.6s;
+    transition-delay: 0s;
+    transition-timing-function: ease;
   }
   .menu-desctop ul li a:hover {
+    display: inline-block;
     color: #eeebeb;
+    transform: translateY(-5px);
   }
+}
+.wrapper-about {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper-about .about1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+.wrapper-about .about1 .about-text {
+  padding: 1em 2em;
+  text-align: center;
+}
+.wrapper-about .about1 .about-text h1 {
+  font-size: 5em;
+}
+.wrapper-about .about1 .about-text h3 {
+  font-size: 3em;
+}
+.wrapper-about .about1 .about-text p {
+  margin-top: 2em;
+}
+.wrapper-about .about1 .about-imag1 {
+  overflow: hidden;
+  max-width: 50em;
+  max-height: 60em;
+  margin-top: 2em;
+}
+.wrapper-about .about1 .about-imag1 img {
+  max-width: 100%;
+}
+.wrapper-about .about2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper-about .about2 .about-imag2 img {
+  max-width: 100%;
+}
+.wrapper-about .about2 .about-text2 {
+  margin-top: 4em;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 4em;
+}
+.wrapper-about .about2 .about-text2 h2 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+.wrapper-about .about2 .about-text2 p {
+  font-size: 2.5em;
+}
+.wrapper-about .about2 .about-text2 .more {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+.wrapper-about .about2 .about-text2 .more span {
+  display: inline-block;
+  font-size: 1.8em;
+}
+.wrapper-about .about2 .about-text2 .more .btn-more {
+  background: url("/sources/right_long_arrow_icon_214373.png") no-repeat 100%;
+  width: 3em;
+  height: 1.5em;
+  margin-top: 1em;
+}
+.wrapper-about .about2 .about-text2 .more .btn-more img {
+  max-width: 100%;
+}
+
+.element-animation {
+  opacity: 0;
+  max-width: 100%;
+  max-height: 100%;
+  transform: translateY(-40px);
+}
+
+.element-animation.element-show {
+  opacity: 1;
+  transition: all 1.5s;
+  transform: translateY(0%);
+}
+
+@media (min-width: 600px) {
+  .wrapper-about .about1 {
+    justify-content: space-between;
+  }
+  .wrapper-about .about1 .about-imag1 {
+    width: 70em;
+    display: flex;
+    justify-content: center;
+  }
+  .wrapper-about .about1 .about-imag1 img {
+    max-width: 100%;
+  }
+  .wrapper-about .about1 .about-text {
+    margin-top: 4em;
+    line-height: 1.4;
+  }
+  .wrapper-about .about1 .about-text h2 {
+    font-size: 3em;
+    margin-top: 1em;
+  }
+  .wrapper-about .about1 .about-text p {
+    margin-top: 1em;
+    font-size: 2em;
+  }
+  .wrapper-about .about2 {
+    margin: 0 auto;
+  }
+  .wrapper-about .about2 .about-imag2 {
+    width: 80%;
+  }
+}
+@media (min-width: 1020px) {
+  .wrapper-about .about1 {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 5em;
+  }
+  .wrapper-about .about1 .about-text {
+    align-self: center;
+    width: 50em;
+    margin-bottom: 6em;
+    margin-left: 4em;
+  }
+  .wrapper-about .about1 .about-text h1 {
+    font-size: 4.5em;
+  }
+}
+@media (min-width: 1300px) {
+  .wrapper-about {
+    margin-top: 0;
+  }
+  .wrapper-about .about2 {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .wrapper-about .about2 .about-imag2 {
+    max-width: 60em;
+  }
+  .wrapper-about .about2 .about-text2 {
+    align-self: center;
+    margin-right: 5em;
+    max-width: 50em;
+    text-align: center;
+  }
+  .wrapper-about .about2 .about-text2 p {
+    padding: 0.5em 0;
+    height: 3em;
+    font-size: 2.5em;
+  }
+  .wrapper-about .about2 .about-text2 .more {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2em;
+  }
+  .wrapper-about .about2 .about-text2 .more span {
+    font-size: 1.5em;
+    margin-right: 1em;
+  }
+  .wrapper-about .about2 .about-text2 .more .btn-more {
+    width: 4em;
+    height: 2em;
+    margin-top: 0.1em;
+  }
+}
+.black {
+  display: none;
+  background-color: rgb(0, 0, 0);
 }/*# sourceMappingURL=style.css.map */
